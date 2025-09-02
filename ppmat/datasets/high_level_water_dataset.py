@@ -298,7 +298,7 @@ class HighLevelWaterDataset(Dataset):
             reserve_idx = []
             for i, data_item in enumerate(data):
                 if isinstance(data_item, str) or (
-                    data_item is not None and not math.isnan(data_item)
+                    data_item is not None and not np.isnan(data_item).any()
                 ):
                     reserve_idx.append(i)
             for key in self.property_data.keys():
